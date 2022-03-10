@@ -2,3 +2,4 @@ node_modules
 .vscode
 pdtyping/README.md
 package-lock.json
+.angular
