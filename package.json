@@ -6,8 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pull": "git pull origin main",
-    "push": "git pull origin main | git add . | git commit -m \"regular commit\" | git push origin main"
+    "push": "git pull origin main | git add . | git commit -m \"$process.env.npm_config_msg\" | git push origin main"
   },
   "author": "Elvan Can Başaran, Doğancan Büyükçolak, Ercan Onur Sever",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlynObject/PDTyping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlynObject/PDTyping/issues"
+  },
+  "homepage": "https://github.com/FlynObject/PDTyping#readme"
 }
