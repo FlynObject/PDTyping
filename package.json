@@ -4,8 +4,10 @@
   "description": "Client application build with electron. Main purpose is getting size and change in someone's handwriting when person is asked to write same letter again and again via graph tablet and a stylus.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pull": "git pull origin main",
+    "push": "git pull origin main | git add * | git commit -m 'regular commit' | git push origin main"
   },
-  "author": "Elvan Can Başaran, Doğancan Büyükçolak, Ercan",
+  "author": "Elvan Can Başaran, Doğancan Büyükçolak, Ercan Onur Sever",
   "license": "ISC"
 }
