@@ -1,0 +1,11 @@
+{
+  "name": "pdtyping-client",
+  "version": "1.0.0",
+  "description": "Client application build with electron. Main purpose is getting size and change in someone's handwriting when person is asked to write same letter again and again via graph tablet and a stylus.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elvan Can Başaran, Doğancan Büyükçolak, Ercan",
+  "license": "ISC"
+}
