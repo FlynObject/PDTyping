@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pull": "git pull origin main",
-    "push": "git pull origin main | git add . | git commit -m \"regular fix\" | git push origin main"
+    "push": "git pull origin main | git add . | git commit -m \"regular development\" | git push origin main"
   },
   "author": "Elvan Can Başaran, Doğancan Büyükçolak, Ercan Onur Sever",
   "license": "ISC",
