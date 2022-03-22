@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { DetailListComponent } from './detail-list/detail-list.component';
+import { MultiLineGraphComponent } from './multi-line-graph/multi-line-graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
     SidenavListComponent,
-    DetailListComponent
+    DetailListComponent,
+    MultiLineGraphComponent
   ],
   imports: [
     BrowserModule,
