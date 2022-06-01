@@ -569,12 +569,14 @@
 
 				if (evt.pointerType) {
 					switch (evt.pointerType) {
+						/*
 						case "touch":
 							// A touchscreen was used
 							pressure = 1.0;
 							context.strokeStyle = "red";
 							context.lineWidth = pressure;
 							break;
+						*/
 						case "pen":
 							// A pen was used
 							if (buttons == EPenButton.barrel) {
@@ -595,6 +597,7 @@
 								context.lineWidth = pressure * 10;
 							}
 							break;
+						/*
 						case "mouse":
 							// A mouse was used
 							//pressure = 2;
@@ -608,6 +611,7 @@
 
 							context.lineWidth = pressure;
 							break;
+						*/
 					}
 
 					// If pen erase button is being used, then erase!
