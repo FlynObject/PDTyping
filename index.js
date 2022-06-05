@@ -37,7 +37,8 @@ function createWindow() {
         /*
             DEV ONLY
         */
-        win.loadURL("http://localhost:4200");
+        //win.loadURL("http://localhost:4200");
+        win.loadFile("./pdtyping/src/demo.html");
 
         /*
             PROD ONLY

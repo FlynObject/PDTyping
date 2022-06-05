@@ -44,12 +44,16 @@
 		https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_cursor2 
 		https://stackoverflow.com/questions/737022/how-do-i-disable-right-click-on-my-web-page 
  -->
- 
+
 <html>
+
 <head>
 	<title>Scribble Demo for Javascript</title>
 	<style>
-		h1, h2, h3, p {
+		h1,
+		h2,
+		h3,
+		p {
 			padding: 0;
 			margin: 0;
 		}
@@ -82,7 +86,7 @@
 		.inlineBlockChild {
 			margin-left: 0px;
 			margin-right: 0px;
-			width:36px;
+			width: 36px;
 			display: inline-block;
 			margin: auto;
 			float: left;
@@ -92,16 +96,20 @@
 			margin-left: 0px;
 			margin-right: 0px;
 			margin-bottom: 5px;
-			cursor: pointer; /* Pointer/hand icon */
-			border: 3px inherit black; /* toggle effect */
-			display: block; /* Make the buttons appear stacked */
+			cursor: pointer;
+			/* Pointer/hand icon */
+			border: 3px inherit black;
+			/* toggle effect */
+			display: block;
+			/* Make the buttons appear stacked */
 		}
 
 		.buttonGroup label {
 			padding-top: 10px;
 			padding-bottom: 10px;
 			font-size: 20px;
-			display: block;	/* Make the labels appear stacked */
+			display: block;
+			/* Make the labels appear stacked */
 		}
 
 		.canvasDiv {
@@ -129,7 +137,10 @@
 		}
 
 		#myCanvas {
-			touch-action: none; /*prevent canvas scrolling and system touch behavior*/
+			height: 90vh;
+			width: 90vw;
+			touch-action: none;
+			/*prevent canvas scrolling and system touch behavior*/
 			display: block;
 			/* This doesn't ensure background color saved in image.
 				background-color: tan;
@@ -138,82 +149,14 @@
 		}
 	</style>
 </head>
+
 <body onload="initPage()" onresize="setCanvasProps()" oncontextmenu="return false;">
-	<div class='parent'>
-		<h2 id="scribblePrompt">Scribble on the canvas:</h2>
-		<div class='child inlineBlockChild' style="width:150px">
-			<div class='buttonGroup'>
-				<label>Primary color:</label>
-				<label>Secondary color:</label>
-			</div>
-		</div>
-		<div class='child inlineBlockChild'>
-			<div class='buttonGroup'>
-				<button type="button" class="colorButton" id="colorButton11"></button>
-				<button type="button" class="colorButton" id="colorButton12"></button>
-			</div>
-		</div>
-		<div class='child inlineBlockChild'>
-			<div class='buttonGroup'>
-				<button type="button" class="colorButton" id="colorButton21"></button>
-				<button type="button" class="colorButton" id="colorButton22"></button>
-			</div>
-		</div>
-
-		<div class='child inlineBlockChild'>
-			<div class='buttonGroup'>
-				<button type="button" class="colorButton" id="colorButton31"></button>
-				<button type="button" class="colorButton" id="colorButton32"></button>
-			</div>
-		</div>
-
-		<div class='child inlineBlockChild'>
-			<div class='buttonGroup'>
-				<button type="button" class="colorButton" id="colorButton41"></button>
-				<button type="button" class="colorButton" id="colorButton42"></button>
-			</div>
-		</div>
-
-		<div class='child inlineBlockChild'>
-			<div class='buttonGroup'>
-				<button type="button" class="colorButton" id="colorButton51"></button>
-				<button type="button" class="colorButton" id="colorButton52"></button>
-			</div>
-		</div>
-
-		<div class='child inlineBlockChild'>
-			<div class='buttonGroup'>
-				<button type="button" class="colorButton" id="colorButton61"></button>
-				<button type="button" class="colorButton" id="colorButton62"></button>
-			</div>
-		</div>
-
-		<div class="actionButtonGroup">
-			<button type="button" class="actionButton" onclick="clearCanvas()" style="font-size:20px">Clear</button>
-			<button type="button" class="actionButton" onclick="saveCanvas()" style="font-size:20px">Save</button>
-		</div>
-	</div>
-
-	<div class="promptLabel">
-		<input type="checkbox" id="tiltCheckbox" value="useTilt" onclick="setTilt()">
-		<label for="tiltCheckbox" style="font-size:20px">Draw with tilt?</label>
-	</div>
 
 	<div class="canvasDiv">
-		<canvas id="myCanvas" height="800"
-				  style="border:1px solid #d3d3d3;">
+		<canvas id="myCanvas" style="border:1px solid #d3d3d3;">
 			Your browser does not support the canvas element.
 		</canvas>
 	</div>
-	<div>
-		<h1>Pointer data:</h1>
-		<button type="button" class="actionButton" onclick="clearReport()" style="font-size:20px">Clear</button>
-		<p id="showData" style="font-size:25px" onclick="toggleShowData()">Click to enable showing pointer data</p>
-	</div>
-	<div class="reportDiv">
-		<output id="reportElement" style="font-size:20px"></output>
-	</div>
-	<a id="link"></a>
 
 	<script>
 		/////////////////////////////////////////////////////////////////////////
@@ -237,24 +180,24 @@
 		var buttonProps = new Map();
 
 		var EPenButton =
-			{
-				tip: 0x1,		// left mouse, touch contact, pen contact
-				barrel: 0x2,		// right mouse, pen barrel button
-				middle: 0x4,		// middle mouse
-				eraser: 0x20		// pen eraser button
-			};
+		{
+			tip: 0x1,		// left mouse, touch contact, pen contact
+			barrel: 0x2,		// right mouse, pen barrel button
+			middle: 0x4,		// middle mouse
+			eraser: 0x20		// pen eraser button
+		};
 
 		/////////////////////////////////////////////////////////////////////////
 
-		var scribblePrompt = document.getElementById("scribblePrompt");
+		/*var scribblePrompt = document.getElementById("scribblePrompt");
 		scribblePrompt.textContent += (supportsPointerEvents ? " [Your browser supports PointerEvents]" : " [Your browser does not support PointerEvents]");
-
+		*/
 		/////////////////////////////////////////////////////////////////////////
 		// Initialize page elements
 		//
 		function initPage() {
 			setCanvasProps();
-			initButton("colorButton11", "red");
+			/*initButton("colorButton11", "red");
 			initButton("colorButton12", "red");
 			initButton("colorButton21", "green");
 			initButton("colorButton22", "green");
@@ -265,7 +208,7 @@
 			initButton("colorButton51", "black");
 			initButton("colorButton52", "black");
 			initButton("colorButton61", "gray");
-			initButton("colorButton62", "gray");
+			initButton("colorButton62", "gray");*/
 		}
 
 		/////////////////////////////////////////////////////////////////////////
@@ -274,14 +217,12 @@
 			var button = document.getElementById(buttonId_I);
 			button.style.backgroundColor = backgroundColor_I;
 			buttonProps.set(buttonId_I, backgroundColor_I);
-			if (button == primaryColorButton || button == secondaryColorButton)
-			{
+			if (button == primaryColorButton || button == secondaryColorButton) {
 				button.style.borderColor = selectedColor;
 			}
-			button.onclick = function () { 
-					//alert(button.id + " background: " + buttonProps.get(button.id));
-				switch(button.id)
-				{
+			button.onclick = function () {
+				//alert(button.id + " background: " + buttonProps.get(button.id));
+				switch (button.id) {
 					case "colorButton11":
 					case "colorButton21":
 					case "colorButton31":
@@ -579,24 +520,24 @@
 						*/
 						case "pen":
 							// A pen was used
-							if (buttons == EPenButton.barrel) {
+							/*if (buttons == EPenButton.barrel) {
 								context.strokeStyle = buttonProps.get(secondaryColorButton.id);
 							}
 							else {
 								context.strokeStyle = buttonProps.get(primaryColorButton.id);
-							}
+							}*/
 
-							if (useTilt) {
+							/*if (useTilt) {
 								// Favor tilts in x direction.
 								context.lineWidth = pressure * 3 * Math.abs(tilt.x);
 								// Uncomment for a "vaseline" (smeary) effect:
 								//context.shadowColor = "blue";
 								//context.shadowBlur = context.lineWidth / 2;
 							}
-							else {
+							else {*/
 								context.lineWidth = pressure * 10;
-							}
-							break;
+							/*}
+							break;*/
 						/*
 						case "mouse":
 							// A mouse was used
@@ -728,4 +669,5 @@
 	</script>
 
 </body>
+
 </html>
